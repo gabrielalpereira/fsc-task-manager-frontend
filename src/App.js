@@ -20,6 +20,10 @@ class App extends React.Component {
         };
     }
 
+    componentDidUpdate() {
+        console.log("component was updated!");
+    }
+
     handleStateChange() {
         this.setState({
             tasks: [],
