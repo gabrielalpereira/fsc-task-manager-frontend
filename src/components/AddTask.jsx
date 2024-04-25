@@ -7,7 +7,6 @@ import CustomInput from "./CustomInput";
 import CustomButton from "./CustomButton";
 
 import "./AddTask.scss";
-import { RiTaskLine } from "react-icons/ri";
 
 const AddTask = ({ fetchTasks }) => {
     const [task, setTask] = useState("");
@@ -20,7 +19,7 @@ const AddTask = ({ fetchTasks }) => {
 
     const handleTaskAddition = async () => {
         try {
-            if (task.length == 0) {
+            if (task.length === 0) {
                 return alert.error(
                     "A tarefa precisa de uma descrição para ser adicionada."
                 );
