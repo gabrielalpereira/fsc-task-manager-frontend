@@ -9,7 +9,7 @@ import CustomButton from "./CustomButton";
 import "./AddTask.scss";
 import { RiTaskLine } from "react-icons/ri";
 
-const AddTask = () => {
+const AddTask = ({ fetchTasks }) => {
     const [task, setTask] = useState("");
 
     const alert = useAlert();
@@ -29,7 +29,13 @@ const AddTask = () => {
                 description: task,
                 isCompleted: false,
             });
-        } catch (error) {}
+
+            await fetchTasks();
+
+            setTask("");
+        } catch (error) {
+            alert.error("Algo deu errado.");
+        }
     };
 
     return (
